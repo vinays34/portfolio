@@ -9,7 +9,7 @@ const Follow = (props)=>{
                Follow me
             </Text>
             <MaterialCommunityIcons 
-            onPress={()=>{console.log("Clicked Instagram")}}
+          
             style={[styles.icon]} name="instagram" size={24} color="#C13584" />
             <MaterialCommunityIcons style={[styles.icon]} name="facebook" size={24} color="#3B5998" />
             <MaterialCommunityIcons style={[styles.icon]} name="twitter" size={24} color="#1DA1F2" />

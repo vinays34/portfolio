@@ -45,11 +45,11 @@ export default function MainScreen(props) {
   }
  
  const HandleScroll = (event)=>{
-  console.log(Math.round(event.nativeEvent.contentOffset.y/bodyHeight));
+
   setSelectednavItem(Math.round(event.nativeEvent.contentOffset.y/bodyHeight))
  }
 useEffect(()=>{
-  console.log("Nav item is",selectedNavitem)
+ 
   scrollRef.current.scrollTo({x: 0, y: bodyHeight*selectedNavitem, animated: true})
 },[selectedNavitem])
 

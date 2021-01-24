@@ -37,7 +37,7 @@ const WorkMain = ()=>{
                                   showCursor={false}
                                 
                                   onComplete={()=>{
-                                    console.log("Completed typing")
+                                  
                                    // setTagLineDisplay(true)
                                     
                                   }}

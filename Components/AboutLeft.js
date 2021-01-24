@@ -19,7 +19,7 @@ const AboutLeft =()=>{
                     showCursor={false}
                   
                     onComplete={()=>{
-                      console.log("Completed typing")
+                     
                      // setTagLineDisplay(true)
                       setSecondline(true)
                     }}
@@ -33,7 +33,7 @@ const AboutLeft =()=>{
                         showCursor={false}
                       
                         onComplete={()=>{
-                          console.log("Completed typing")
+                         
                           setTagLineDisplay(true)
                           fadeIn(fadeAnim,5000)
                         }}

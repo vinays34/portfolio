@@ -15,6 +15,7 @@ import MainScreen from './Components/MainStack/MainScreen'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Tools from './Components/Screens/Tools';
+import Contact from './Components/Contact/Contact';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -40,8 +41,9 @@ export default function App() {
   }
   const config = {
     screens: {
-      MainScreen: 'home',
-      Tools: 'skills',
+      MainScreen: '/',
+      Tools: '/skills',
+      NotFound: '*',
     },
   };
   
@@ -59,6 +61,7 @@ export default function App() {
       }>
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="Tools" component={Tools}/>
+        <Stack.Screen name={"NotFound"} component={Contact}/> 
       </Stack.Navigator>
     </NavigationContainer>
     

@@ -18,7 +18,7 @@ const Tools =()=>{
     }
     const Item = ({ title }) => (
         <View style={[styles.item,{flexDirection:'row'}]}>
-            {console.log(title)}
+           
             <Image
             source={title.imageurl}
             style={{height:50,width:50,marginHorizontal:12}}
