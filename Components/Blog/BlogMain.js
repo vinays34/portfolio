@@ -20,7 +20,7 @@ const BlogMain = ()=>{
               <Hoverable
                onHoverIn={()=>{sethoverindex(true)}} onHoverOut={()=>{sethoverindex(false)}}
               >
-              <TouchableOpacity style={[{borderWidth:1,borderColor:'red',padding:12},hoverindex?{backgroundColor:"red",borderWidth:0}:null]}>
+              <TouchableOpacity style={[{borderWidth:1,borderRadius:4,borderColor:'red',padding:12},hoverindex?{backgroundColor:"red",borderWidth:0}:null]}>
                    <Text style={[hoverindex?{color:'white',fontWeight:'bold'}:null]}>CHECK OUT MY BLOG</Text>
                </TouchableOpacity>
               </Hoverable>

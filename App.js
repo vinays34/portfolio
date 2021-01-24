@@ -38,8 +38,19 @@ export default function App() {
   if (isTabletOrMobileDevice) {
     return (<Text>Hi Mobile Users 👋</Text>)
   }
+  const config = {
+    screens: {
+      MainScreen: 'home',
+      Tools: 'skills',
+    },
+  };
+  
+  const linking = {
+    prefixes: ['https://mychat.com', 'mychat://'],
+    config,
+  };
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
       <Stack.Navigator
       screenOptions={
         {
@@ -47,7 +58,7 @@ export default function App() {
         }
       }>
         <Stack.Screen name="MainScreen" component={MainScreen} />
-        <Stack.Screen name="Tools" options={{headerShown:true}} component={Tools}/>
+        <Stack.Screen name="Tools" component={Tools}/>
       </Stack.Navigator>
     </NavigationContainer>
     

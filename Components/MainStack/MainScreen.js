@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useRef, useState } from 'react';
-import { Animated, BackHandler, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, BackHandler, Image, ScrollView, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import { ABOUT, WORK, BLOG, CONTACT, HOME } from '../../Constant/TextConstants';
 import '@expo/match-media'
 // Unleash the demo :D
@@ -12,14 +12,18 @@ import Follow from '../Header/Follow';
 import WorkMain from '../Work/WorkMain';
 import BlogMain from '../Blog/BlogMain';
 import AboutMe from '../AboutMe/AboutMe';
+import Contact from '../Contact/Contact';
 
 
 
 export default function MainScreen(props) {
   const inputEl = useRef(null);
+  const scrollRef = useRef(null);
+
   const [bodyHeight,setBodyHeight] = useState(0)
-  const [selectedNavitem,setSelectednavItem] = useState("about")
- 
+  const [selectedNavitem,setSelectednavItem] = useState(0)
+  const [refersh,setRefresh] = useState(false)
+  
   useEffect(()=>{
     if(inputEl.current){
       inputEl.current.measure((fx, fy, width, height, px, py) => {
@@ -39,23 +43,19 @@ export default function MainScreen(props) {
   const navigateToTools=()=>{
     props.navigation.navigate("Tools")
   }
-  useEffect(()=>{
-    BackHandler.addEventListener('hardwareBackPress', function() {
-      /**
-       * this.onMainScreen and this.goBack are just examples,
-       * you need to use your own implementation here.
-       *
-       * Typically you would use the navigator here to go to the last state.
-       */
-      props.navigation.goBack()
-    
-      /**
-       * Returning false will let the event to bubble up & let other event listeners
-       * or the system's default back action to be executed.
-       */
-      return false;
-    });
-  })
+ 
+ const HandleScroll = (event)=>{
+  console.log(Math.round(event.nativeEvent.contentOffset.y/bodyHeight));
+  setSelectednavItem(Math.round(event.nativeEvent.contentOffset.y/bodyHeight))
+ }
+useEffect(()=>{
+  console.log("Nav item is",selectedNavitem)
+  scrollRef.current.scrollTo({x: 0, y: bodyHeight*selectedNavitem, animated: true})
+},[selectedNavitem])
+
+useEffect(()=>{
+  setRefresh(!refersh);
+},useWindowDimensions().height)
   return (
     <View style={styles.container}>
       
@@ -69,29 +69,29 @@ export default function MainScreen(props) {
       </View>
        <View style={[styles.navbar]}>
        <TouchableOpacity 
-        onPress={()=>{setSelectednavItem('home')}}
-        style={[styles.navitem,selectedNavitem==="home"?styles.navitemActive:null]}>
+        onPress={()=>{setSelectednavItem(0)}}
+        style={[styles.navitem,selectedNavitem===0?styles.navitemActive:null]}>
           <Text style={[styles.navText]}>{HOME}</Text>
         </TouchableOpacity>
         
         <TouchableOpacity         
-         onPress={()=>{setSelectednavItem('work')}}
-        style={[styles.navitem,selectedNavitem==="work"?styles.navitemActive:null]}>
+         onPress={()=>{setSelectednavItem(1)}}
+        style={[styles.navitem,selectedNavitem===1?styles.navitemActive:null]}>
           <Text style={[styles.navText]}>{WORK}</Text>
         </TouchableOpacity>
         <TouchableOpacity          
-         onPress={()=>{setSelectednavItem('blog')}}
-        style={[styles.navitem,selectedNavitem==="blog"?styles.navitemActive:null]}>
+         onPress={()=>{setSelectednavItem(2)}}
+        style={[styles.navitem,selectedNavitem===2?styles.navitemActive:null]}>
           <Text style={[styles.navText]}>{BLOG}</Text>
         </TouchableOpacity>
         <TouchableOpacity 
-        onPress={()=>{setSelectednavItem('about')}}
-        style={[styles.navitem,selectedNavitem==="about"?styles.navitemActive:null]}>
+        onPress={()=>{setSelectednavItem(3)}}
+        style={[styles.navitem,selectedNavitem===3?styles.navitemActive:null]}>
           <Text style={[styles.navText]}>{ABOUT}</Text>
         </TouchableOpacity>
         <TouchableOpacity          
-         onPress={()=>{setSelectednavItem('contact')}}
-        style={[styles.navitem,selectedNavitem==="contact"?styles.navitemActive:null]}>
+         onPress={()=>{setSelectednavItem(4)}}
+        style={[styles.navitem,selectedNavitem===4?styles.navitemActive:null]}>
           <Text style={[styles.navText]}>{CONTACT}</Text>
         </TouchableOpacity>
        </View>
@@ -99,7 +99,9 @@ export default function MainScreen(props) {
      <View ref={inputEl} style={[styles.body]}>
      <View  style={{height:bodyHeight}}>
       <ScrollView
-      showsVerticalScrollIndicator={false}>
+      ref={scrollRef}
+      onScroll={HandleScroll}
+       showsVerticalScrollIndicator={false}>
         <View style={{height:bodyHeight,flexDirection:'row'}}>
         <View  style={{flex:1,justifyContent:'center',alignItems:'center'}}>
         <AboutLeft/>
@@ -116,6 +118,12 @@ export default function MainScreen(props) {
         </View>
         <View style={{height:bodyHeight}}>
          <AboutMe/>
+        </View>
+        <View style={{height:bodyHeight}}>
+         <Contact/>
+        </View>
+        <View style={{paddingVertical:20}}>
+          <Text>This is the footer</Text>
         </View>
       </ScrollView>
      </View>
