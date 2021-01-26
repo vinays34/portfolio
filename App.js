@@ -59,7 +59,7 @@ export default function App() {
           headerShown:false
         }
       }>
-        <Stack.Screen name="MainScreen" component={MainScreen} />
+        <Stack.Screen name="MainScreen" component={MainScreen} options={{title:"Home "}}/>
         <Stack.Screen name="Tools" component={Tools}/>
         <Stack.Screen name={"NotFound"} component={Contact}/> 
       </Stack.Navigator>
