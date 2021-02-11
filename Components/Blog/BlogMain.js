@@ -6,6 +6,7 @@ import { BLOGDATA } from '../../Constant/TextConstants';
 
 const BlogMain = ()=>{
     const [hoverindex,sethoverindex] = useState(null);
+    const [blogStatus,setBlogStatus] = useState(false)
     return(
        <View style={{flex:1}}>
            <Subheader name="BLOGS"/>
@@ -18,12 +19,17 @@ const BlogMain = ()=>{
            </View>
            <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
               <Hoverable
-               onHoverIn={()=>{sethoverindex(true)}} onHoverOut={()=>{sethoverindex(false)}}
+               onHoverIn={()=>{sethoverindex(true)}} onHoverOut={()=>{
+                  sethoverindex(false)
+                  setBlogStatus(false)}}
               >
-              <TouchableOpacity style={[{borderWidth:1,borderRadius:4,borderColor:'red',padding:12},hoverindex?{backgroundColor:"red",borderWidth:0}:null]}>
+              <TouchableOpacity 
+              onPress={()=>{setBlogStatus(true)}}
+              style={[{borderWidth:1,borderRadius:4,borderColor:'red',padding:12},hoverindex?{backgroundColor:"red",borderWidth:0}:null]}>
                    <Text style={[hoverindex?{color:'white',fontWeight:'bold'}:null]}>CHECK OUT MY BLOG</Text>
                </TouchableOpacity>
               </Hoverable>
+              <Text style={{color:"red"}}> {blogStatus?"Sorry this page is still under development!":null}</Text>
            </View>
         </View>
        </View>

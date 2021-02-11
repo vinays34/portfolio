@@ -13,6 +13,7 @@ import WorkMain from '../Work/WorkMain';
 import BlogMain from '../Blog/BlogMain';
 import AboutMe from '../AboutMe/AboutMe';
 import Contact from '../Contact/Contact';
+import Iframe from 'react-iframe';
 
 
 
@@ -58,7 +59,9 @@ useEffect(()=>{
 },useWindowDimensions().height)
   return (
     <View style={styles.container}>
-      
+      <View>
+        
+      </View>
      <View style={[styles.header,isTabletOrMobileDevice]}>
        <Follow style={{position:'absolute',right:0}}/>
       <View>
@@ -122,9 +125,18 @@ useEffect(()=>{
         <View style={{height:bodyHeight}}>
          <Contact/>
         </View>
-        <View style={{paddingVertical:20}}>
-          <Text>This is the footer</Text>
+        <View style={{paddingVertical:20,alignItems:'center'}}>
+          <Text>❤️</Text>
+          <Text>Thank you for your support!</Text>
         </View>
+       <Text onPress={()=>{props.navigation.navigate("PrivacyPolicy")}}>Privacy Policy</Text>
+        {/* <Iframe url="https://en.wikipedia.org/wiki/Blog"
+        width="450px"
+        height="450px"
+        id="myId"
+        className="myClassname"
+        display="initial"
+        position="relative"/> */}
       </ScrollView>
      </View>
      </View>

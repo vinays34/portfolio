@@ -16,6 +16,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Tools from './Components/Screens/Tools';
 import Contact from './Components/Contact/Contact';
+import PrivacyPolicy from './Constant/PrivacyPolicy';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -43,13 +44,29 @@ export default function App() {
     screens: {
       MainScreen: '/',
       Tools: '/skills',
+      PrivacyPolicy: '/privacypolicy',
       NotFound: '*',
     },
   };
-  
+  const state = {
+    routes: [
+      {
+        name: 'skills',
+        state: {
+          routes: [
+            {
+              name: 'Tools',
+              
+            },
+          ],
+        },
+      },
+    ],
+  };
   const linking = {
     prefixes: ['https://mychat.com', 'mychat://'],
     config,
+   // state
   };
   return (
     <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
@@ -59,7 +76,8 @@ export default function App() {
           headerShown:false
         }
       }>
-        <Stack.Screen name="MainScreen" component={MainScreen} options={{title:"Home "}}/>
+        <Stack.Screen name="MainScreen" component={MainScreen} options={{title:"Home"}}/>
+        <Stack.Screen name={"PrivacyPolicy"} component={PrivacyPolicy} />
         <Stack.Screen name="Tools" component={Tools}/>
         <Stack.Screen name={"NotFound"} component={Contact}/> 
       </Stack.Navigator>
