@@ -64,9 +64,9 @@ export default function App() {
     ],
   };
   const linking = {
-    prefixes: ['https://mychat.com', 'mychat://'],
+    prefixes: ['https://vinays.dev', 'vinays.dev://'],
     config,
-   // state
+   state
   };
   return (
     <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>

@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "vinays",
+    "scheme": "mychat",
     "slug": "vinays",
     "version": "1.0.0",
     "orientation": "portrait",

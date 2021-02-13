@@ -2,13 +2,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Tools from '../Components/Screens/Tools';
+import App from './../App'
 
 
-
-export default function App() {
+export default function AppNext() {
   return (
     <View style={styles.container}>
-      <Tools/>
+     <Tools/>
     </View>
   );
 }
