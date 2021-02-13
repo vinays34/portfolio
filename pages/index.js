@@ -1,14 +1,16 @@
 // @generated: @expo/next-adapter@2.1.55
+import Link from 'next/link'
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Tools from '../Components/Screens/Tools';
-import App from './../App'
 
 
-export default function AppNext() {
+
+
+export default function App() {
   return (
     <View style={styles.container}>
-     <Tools/>
+     <Link href="/home">
+     <Text>Home</Text></Link>
     </View>
   );
 }
