@@ -4,39 +4,6 @@ import Subheader from '../../Constant/Subheader';
 import Iframe from 'react-iframe'
 const Contact =()=>{
 
-const gapi = "https://apis.google.com/js/api.js"
-
-
-
-
-
-
-
-
-    const onFormSubmit = ()=>{
-        const submissionvalues= null
-    const params = {
-        spreadSheetId:"",
-        range:"Sheet1",
-        valueInputOutput: "RAW",
-        insertDataOption: "INSERT_ROWS"
-    }
-    
-    const valueRangeBody={
-        "majorDimension": "ROWS",
-        'values':[submissionvalues]
-    }
-    
-    let request =gapi.client.sheets.spreadsheets.values.append(params,valueRangeBody);
-    request.then(function(response){
-    
-    })
-    }
-    useEffect(()=>{
-        gapi.load('client:auth2',()=>{
-
-        })
-    })
 return(
     <View style={{flex:1}}>
         <Subheader name={"CONTACT"}/>
