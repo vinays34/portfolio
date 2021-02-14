@@ -6,7 +6,24 @@ export const HOME = "HOME";
 
 //Data for works section
 
-export const DATA = ["TAMBOLA PRO", "LA CARTE MENU", "COVID19 WEBSITE"];
+export const DATA = [
+  {
+    title:"TAMBOLA PRO",
+    url:"https://play.google.com/store/apps/details?id=com.svinay.tambolanext",
+    desc: "An Indian bingo number caller."
+  },
+  {
+    title:"LA CARTE - DIGITAL MENU",
+    url:"https://play.google.com/store/apps/details?id=com.svinay.tambolanext",
+    desc: "Digital menu for restaurents."
+  },
+  {
+    title:"COVID19 WEBSITE",
+    url:"https://www.worldcovid19.info",
+    desc:"Website displaying covid 19 related info."
+  }
+  
+];
 export const DESC = [
   "An Indian bingo number caller.",
   "Digital menu for restaurents.",
@@ -36,7 +53,7 @@ export const SKILLS_SET = [
           "A javascript frontend framework for building native ios android and web apps",
         status: true,
         type: "0",
-        imageurl: require("./../assets/rnlogo.png"),
+        imageurl: "/rnlogo.png",
       },
       {
         name: "Apollo Client",
@@ -44,7 +61,7 @@ export const SKILLS_SET = [
           "Apollo Client is a comprehensive state management library for JavaScript that enables you to manage both local and remote data with GraphQL.",
         status: true,
         type: "0",
-        imageurl: require("./../assets/apollo.png"),
+        imageurl: "/apollo.png",
       },
       {
         name: "Graphql",
@@ -52,7 +69,7 @@ export const SKILLS_SET = [
           "GraphQL is a query language for your API, and a server-side runtime for executing queries by using a type system you define for your data.",
         status: true,
         type: "0",
-        imageurl: require("./../assets/graphql.png"),
+        imageurl: "graphql.png",
       },
       {
         name: "Strapi",
@@ -60,7 +77,7 @@ export const SKILLS_SET = [
           "Strapi is a flexible, open-source Headless CMS proiding easy to build API's",
         status: true,
         type: "0",
-        imageurl: require("./../assets/strapi.png"),
+        imageurl: "strapi.png",
       },
       {
         name: "Angular",
@@ -68,7 +85,7 @@ export const SKILLS_SET = [
           "Angular is a platform and framework for building single-page client applications using HTML and TypeScript.",
         status: false,
         type: "0",
-        imageurl: require("./../assets/angular.png"),
+        imageurl: "/angular.png",
       },
     ],
   },
@@ -81,7 +98,7 @@ export const SKILLS_SET = [
           "Java is a high-level programming language based on Object oriented programming",
         status: "true",
         type: "1",
-        imageurl: require("./../assets/java.png"),
+        imageurl: "/java.png",
       },
       {
         name: "Javascript",
@@ -89,7 +106,7 @@ export const SKILLS_SET = [
           "JavaScript is a lightweight, interpreted, object-oriented language with first-class functions",
         status: "true",
         type: "0",
-        imageurl: require("./../assets/js.png"),
+        imageurl: "js.png",
       },
     ],
   },

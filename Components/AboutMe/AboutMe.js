@@ -16,7 +16,7 @@ const AboutMe = ()=>{
            
            <Image
            style={{height:200,width:200,borderRadius:100}}
-           source={require("./../../assets/pp.jpg")}
+           source={"/pp.jpg"}
            />
            <View style={{alignItems:'center',width:350,justifyContent:'center',marginHorizontal:24}}>
                 
