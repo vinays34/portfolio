@@ -129,7 +129,7 @@ useEffect(()=>{
           <Text>❤️</Text>
           <Text>Thank you for your support!</Text>
         </View>
-       <Text onPress={()=>{props.navigation.navigate("PrivacyPolicy")}}>Privacy Policy</Text>
+       {/* <Text onPress={()=>{props.navigation.navigate("PrivacyPolicy")}}>Privacy Policy</Text> */}
         {/* <Iframe url="https://en.wikipedia.org/wiki/Blog"
         width="450px"
         height="450px"

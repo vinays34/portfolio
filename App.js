@@ -77,7 +77,7 @@ export default function App() {
         }
       }>
         <Stack.Screen name="MainScreen" component={MainScreen} options={{title:"Home"}}/>
-        <Stack.Screen name={"PrivacyPolicy"} component={PrivacyPolicy} />
+       
         <Stack.Screen name="Tools" component={Tools}/>
         <Stack.Screen name={"NotFound"} component={Contact}/> 
       </Stack.Navigator>

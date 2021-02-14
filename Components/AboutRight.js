@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import {View,Text, Image, ImageBackground, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import Popover, { PopoverMode, PopoverPlacement } from 'react-native-popover-view/dist/Popover';
@@ -22,25 +23,27 @@ const AboutRight = (props)=>{
         return (
             <View style={{backgroundColor:'white',padding:12}}>
                 <Hoverable onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
-              <TouchableOpacity
-             onPress={()=>{
-                props.navigateToTools()
-             }}
+              <View
+            
               style={{height:120,width:120}} >
-              <Image
+             <Link
+             href={"/skills"}
+             >
+             <Image
              
-              resizeMode={'cover'}
-             
-              source ={item} style={[
-                  styles.image,index===hoverindex?{height:120,width:120,cursor:'pointer', shadowColor: '#000',
-                  shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.6,
-                  shadowRadius: 2}
-                  :
-                  null
-                ]} />
-               
-              </TouchableOpacity>
+             resizeMode={'cover'}
+            
+             source ={item} style={[
+                 styles.image,index===hoverindex?{height:120,width:120,cursor:'pointer', shadowColor: '#000',
+                 shadowOffset: { width: 0, height: 2 },
+                 shadowOpacity: 0.6,
+                 shadowRadius: 2}
+                 :
+                 null
+               ]} />
+               </Link>
+              
+              </View>
              
               </Hoverable>
               <View style={{alignItems:'center'}}>
@@ -77,26 +80,28 @@ const AboutRight = (props)=>{
            <FlatList
            scrollToOverflowEnabled={false}
            
-            data={[require("./../assets/rnlogo.png"),require("./../assets/apollo.png"),
-            require("./../assets/graphql.png"),
-            require("./../assets/strapi.png")
-        ]}
+            data={['/rnlogo.png','apollo.png','graphql.png','strapi.png']}
+        
             renderItem={renderItem}
             horizontal={true}
             />
            </View>
            <View style={{}}>
+              
            <Hoverable
                onHoverIn={()=>{setHoverState(true)}} onHoverOut={()=>{setHoverState(false)}}
               >
-              <TouchableOpacity
-               onPress={()=>{
-                props.navigateToTools()
-             }}
-              style={[{borderWidth:1,borderColor:'red',borderRadius:4,padding:12},hoverState?{backgroundColor:"red",borderColor:'white'}:null]}>
-                   <Text style={[hoverState?{color:'white',fontWeight:'bold'}:null]}>MORE TOOLS</Text>
-               </TouchableOpacity>
+                  
+              <View style={[{borderWidth:1,cursor:'pointer',borderColor:'red',borderRadius:4},hoverState?{backgroundColor:"red",borderColor:'white'}:null]}>
+              <Link href="/skills" style={{flex:1,backgroundColor:'green'}}>
+                   <View style={{flex:1,padding:12}}>
+                   <Text style={[hoverState?{color:'white',fontWeight:'bold'}:null]}>MORE TOOLS</Text> 
+                   </View>
+                   </Link>
+               </View>
+              
               </Hoverable>
+             
            </View>
       
        

@@ -7,7 +7,7 @@ const AboutLeft =()=>{
     const [secondLine,setSecondline] = useState(false)
     const fadeAnim = useRef(new Animated.Value(0)).current;
     return (
-        <View>
+        <View >
             <View>
            <View style={{width:'100%',maxWidth:315}}>
           
