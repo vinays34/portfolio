@@ -108,7 +108,7 @@ export default function App() {
           <Text>❤️</Text>
           <Text>Thank you for your support!</Text>
         </View>
-      <View >
+      <View style={{cursor:'pointer'}}>
       <Link href={"privacypolicy"}>
       <Text style={{alignSelf:'center',padding:20}}>Privacy Policy</Text>
       </Link>

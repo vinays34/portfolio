@@ -4,6 +4,7 @@ import { Hoverable } from 'react-native-web-hooks';
 import { DATA, DESC } from '../../Constant/TextConstants';
 import Typed from 'react-typed';
 import Subheader from '../../Constant/Subheader';
+import Link from 'next/link';
 const WorkMain = ()=>{
     const bgColors = ["#F9564F","#FF5376","#717EC3"];
     const [hoverindex,sethoverindex] = useState(null);
@@ -66,7 +67,9 @@ const WorkMain = ()=>{
 
         />
        </View>
-       <TouchableOpacity style={{alignItems:'center'}}><Text style={{color:"#FCA311",fontWeight:'bold'}}>and theres more...</Text></TouchableOpacity>
+      <Link href="/work">
+      <View style={{alignItems:'center'}}><Text style={{color:"#FCA311",fontWeight:'bold'}}>and theres more...</Text></View>
+      </Link>
       </View>
     </View>
     )
