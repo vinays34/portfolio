@@ -9,6 +9,7 @@ import About from '../NextComponents/About';
 import WorkMain from '../Components/Work/WorkMain';
 import BlogMain from '../Components/Blog/BlogMain';
 import Contact from '../Components/Contact/Contact';
+import AboutMe from '../Components/AboutMe/AboutMe';
 
 
 
@@ -101,6 +102,9 @@ export default function App() {
  <View style={{height:bodyHeight}}>
  <BlogMain/>
  </View>
+ <View style={{height:bodyHeight}}>
+         <AboutMe/>
+        </View>
  <View style={{height:bodyHeight}}>
  <Contact/>
  </View>

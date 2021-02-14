@@ -21,6 +21,10 @@ const NavigationBar = (props)=>{
             id:3,
             title:"About"
         },
+        {
+            id:4,
+            title:"Contact"
+        },
     ]
 useEffect(()=>{
     console.log("NAV ITEM ID IS",props.navItemIndex,navItemSelected)

@@ -39,17 +39,24 @@ const renderItems =({item,index})=>{
           shadowColor: "grey",
           margin:20
         }}
-      >
-        
+      > <a href={item.url} target="_blank">
+          <View style={{padding:2,shadowRadius: 2,
+          shadowColor: "grey",paddingHorizontal:8,position:'absolute',right:8,zIndex:3,borderRadius:4}}>
+         
+           <Text style={[styles.text]}>View</Text>
+          
+          </View>
+          </a>
+
        
      
        <View style={{ flexDirection: "row" }}>
           <Image
             source={item.logo}
-            style={{ height: 100, width: 100 }}
+            style={{ height: 100, width: 100 ,borderRadius:12 }}
           />
-          <View style={{marginLeft:12}}>
-            <Text style={[styles.titleText]}>Title:{item.title}</Text>
+          <View style={{marginLeft:12,justifyContent:'center'}}>
+            <Text style={[styles.titleText]}>{item.title}</Text>
             <View
               style={{
                 flexDirection: "row",
@@ -58,16 +65,16 @@ const renderItems =({item,index})=>{
               }}
             >
               <View>
-              <Text style={[styles.titleText]}>Release date: </Text>
-              <Text>{item.release}</Text>
+              <Text style={[styles.subTitle]}>Release date: </Text>
+              <Text style={{color:'textGrey',fontFamily:'Roboto',fontSize:14,textAlign:'center'}}>{item.release}</Text>
               </View>
               <View>
-              <Text style={[styles.titleText]}>Release date: </Text>
-              <Text>{item.lastUpdate}</Text>
+              <Text style={[styles.subTitle]}>Release date: </Text>
+              <Text style={{color:'textGrey',fontFamily:'Roboto',fontSize:14,textAlign:'center'}}>{item.lastUpdate}</Text>
               </View>
             </View>
             <View style={{flexDirection:'row',alignItems:'center'}}>
-            <Text style={[styles.titleText]}>Current Version:</Text><Text> {item.version}</Text>
+            <Text style={[styles.subTitle]}>Current Version:</Text><Text style={{color:'textGrey',fontFamily:'Roboto',fontSize:14,textAlign:'center'}}> {item.version}</Text>
             </View>
           </View>
         </View>
@@ -100,9 +107,7 @@ const renderItems =({item,index})=>{
             })}
           </View>
         </View>
-       <Link href={item.url}>
-           <Text>View</Text>
-       </Link>
+      
       </View>
     )
 }
@@ -121,7 +126,18 @@ const styles = StyleSheet.create({
     titleText:{
         fontSize:18,
         fontWeight:'bold',
-        color:'#2e2e2e',
+        color:'#454545',
+        fontFamily:"Roboto"
+    },subTitle:{
+        fontSize:16,
+        fontWeight:'500',
+        color:'#454545',
+        fontFamily:"Roboto"
+    },
+    text:{
+        fontSize:14,
+        fontWeight:'bold',
+        color:'#454545',
         fontFamily:"Roboto"
     }
 })

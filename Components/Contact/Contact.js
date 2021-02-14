@@ -1,14 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {View,Text} from 'react-native';
 import Subheader from '../../Constant/Subheader';
 import Iframe from 'react-iframe'
 const Contact =()=>{
+
+const gapi = "https://apis.google.com/js/api.js"
+
+
+
+
+
+
+
+
+    const onFormSubmit = ()=>{
+        const submissionvalues= null
+    const params = {
+        spreadSheetId:"",
+        range:"Sheet1",
+        valueInputOutput: "RAW",
+        insertDataOption: "INSERT_ROWS"
+    }
+    
+    const valueRangeBody={
+        "majorDimension": "ROWS",
+        'values':[submissionvalues]
+    }
+    
+    let request =gapi.client.sheets.spreadsheets.values.append(params,valueRangeBody);
+    request.then(function(response){
+    
+    })
+    }
+    useEffect(()=>{
+        gapi.load('client:auth2',()=>{
+
+        })
+    })
 return(
     <View style={{flex:1}}>
         <Subheader name={"CONTACT"}/>
         <View style={{justifyContent:'center',alignItems:'center',flex:1}}>
         <Text>Hold your horses!Still Building this form...</Text>
         </View>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfCNGePoPGe3TSg4lazsBw4YtJYAgL9PYIsTlCIx-Ay9tsY0Q/viewform?embedded=true" width="640" height="685" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
        {/* <View style={{height:200,width:300}}>
        <Iframe url="http://www.youtube.com/embed/xDMP3i36naA"
             position="absolute"
@@ -21,4 +56,5 @@ return(
     </View>
 )   
 }
+
 export default Contact;

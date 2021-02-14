@@ -12,7 +12,8 @@ const WorkMain = ()=>{
         return(
             <>
             <Hoverable onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
-                <View style={[{
+               <a style={{textDecoration:"none"}} href={item.url} target="_blank">
+               <View style={[{
                     height:250,
                     width:300,
                     borderRadius:12,
@@ -28,12 +29,12 @@ const WorkMain = ()=>{
                     shadowOpacity: 0.4,
                     shadowRadius: 6,}:null
                     ]}>
-                    <Text style={{color:'white',fontFamily:'Roboto',fontSize:28}}>{item}</Text>
+                    <Text style={{color:'white',fontFamily:'Roboto',fontSize:28,textAlign:'center'}}>{item.title}</Text>
                     {hoverindex===index?(
                          <Typed
          
                          style={{fontSize:12,fontFamily:'Roboto',color:'white'}}
-                                  strings={[DESC[index]]}
+                                  strings={[item.desc]}
                                   typeSpeed={40}
                                   showCursor={false}
                                 
@@ -45,6 +46,8 @@ const WorkMain = ()=>{
                               />
                     ):null}
                 </View>
+
+               </a>
                 </Hoverable>
                      
                 </>
