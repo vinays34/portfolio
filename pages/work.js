@@ -79,7 +79,7 @@ const renderItems =({item,index})=>{
           </View>
         </View>
         <View>
-          <Text>Description: {item.desc}</Text>
+          <Text style={{fontFamily:'Roboto',paddingTop:10}}> {item.desc}</Text>
           <View style={{ flexDirection: "row" }}>
             {item.tools.map((source, index) => {
               return (
@@ -92,15 +92,15 @@ const renderItems =({item,index})=>{
                 >
                   <View
                     style={{
-                      backgroundColor: "grey",
-                      height: 10,
-                      width: 10,
+                      backgroundColor: "#00cf11",
+                      height: 6,
+                      width: 6,
                       borderRadius: 10,
                       margin: 4,
                     }}
                   ></View>
                   <View>
-                    <Text>{source}</Text>
+                    <Text style={{fontFamily:'Roboto'}}>{source}</Text>
                   </View>
                 </View>
               );

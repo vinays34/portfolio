@@ -71,7 +71,7 @@ const WorkMain = ()=>{
         />
        </View>
       <Link href="/work">
-      <View style={{alignItems:'center'}}><Text style={{color:"#FCA311",fontWeight:'bold'}}>and theres more...</Text></View>
+      <View style={{alignItems:'center'}}><Text style={{color:"#FCA311",fontWeight:'bold',cursor:'pointer'}}>and theres more...</Text></View>
       </Link>
       </View>
     </View>

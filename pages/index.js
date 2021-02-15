@@ -109,15 +109,26 @@ export default function App() {
  <View style={{height:bodyHeight}}>
  <Contact/>
  </View>
- <View style={{paddingVertical:20,alignItems:'center'}}>
+ <View style={{paddingVertical:8,alignItems:'center'}}>
           <Text>❤️</Text>
           <Text>Thank you for your support!</Text>
         </View>
-      <View style={{cursor:'pointer'}}>
+     
+     
+      
+      <View style={{alignItems:'center',justifyContent:'center',padding:8}}>
       <Link href={"privacypolicy"}>
-      <Text style={{alignSelf:'center',padding:20}}>Privacy Policy</Text>
+      <Text style={styles.footerText}>Privacy Policy</Text>
+      </Link>
+      <Text>        </Text>
+      <Link href={"termsandconditions"}>
+      <Text style={styles.footerText}>Terms and Conditions</Text>
+    
       </Link>
       </View>
+      
+     
+  
     
   </ScrollView>
   {/* <FlatList
@@ -142,4 +153,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
   },
+  footerText:{
+    fontSize:14,
+    fontWeight:'bold',
+    cursor:'pointer'
+    
+  }
 });
