@@ -47,7 +47,7 @@ const AboutRight = (props)=>{
              
               </Hoverable>
               <View style={{alignItems:'center'}}>
-              <Text style={{posiiton:'absolute',textAlign:'center'}}> {hoverindex===index?MAIN_TOOLS_DESC[index]:null}</Text>
+              <Text style={{posiiton:'absolute',textAlign:'center',fontFamilty:'Roboto',fontWeight:'bold'}}> {hoverindex===index?MAIN_TOOLS_DESC[index]:null}</Text>
               </View>
               
             </View>

@@ -73,7 +73,7 @@ export default function App() {
   }
   return (
     <View style={styles.container} >
-
+ <Text style={{fontSize:20,fontWeightL:"bold",fontFamilty:"Roboto",alignSelf:'center'}}>PAGE STILL UNDER CONSTRUCTION.</Text>
     <View 
     ref={inputE2}
     style={{ shadowColor:'black',

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import {View,Text, TouchableOpacity} from 'react-native';
 import { Hoverable } from 'react-native-web-hooks';
@@ -23,11 +24,15 @@ const BlogMain = ()=>{
                   sethoverindex(false)
                   setBlogStatus(false)}}
               >
-              <TouchableOpacity 
+            
+             <View 
               onPress={()=>{setBlogStatus(true)}}
-              style={[{borderWidth:1,borderRadius:4,borderColor:'red',padding:12},hoverindex?{backgroundColor:"red",borderWidth:0}:null]}>
+              style={[{borderWidth:1,borderRadius:4,cursor:"pointer",borderColor:'red',padding:12},hoverindex?{backgroundColor:"red",borderWidth:0}:null]}>
+                   <Link href="/blogs" > 
                    <Text style={[hoverindex?{color:'white',fontWeight:'bold'}:null]}>CHECK OUT MY BLOG</Text>
-               </TouchableOpacity>
+                   </Link>
+                   </View>
+              
               </Hoverable>
               <Text style={{color:"red"}}> {blogStatus?"Sorry this page is still under development!":null}</Text>
            </View>
