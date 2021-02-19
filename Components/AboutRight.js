@@ -21,7 +21,7 @@ const AboutRight = (props)=>{
    const [hoverState,setHoverState] = useState(false)
     const renderItem =({item,index})=>{
         return (
-            <View style={{backgroundColor:'white',padding:12}}>
+            <View style={{backgroundColor:'green',justifyContent:'center',padding:12}}>
                 <Hoverable onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
               <View
             
@@ -58,7 +58,7 @@ const AboutRight = (props)=>{
         
     
            
-           <View style={{alignItems:'center',justifyContent:'center',width:'100%'}}>
+           <View style={{backgroundColor:'red',padding:12,alignItems:'center',justifyContent:'center',width:'100%'}}>
            {/* <Image
             source ={require("./../assets/rnlogo.png")}
             style={[styles.image]}
@@ -78,8 +78,9 @@ const AboutRight = (props)=>{
             style={[styles.image]}
             /> */}
            <FlatList
+           contentContainerStyle={{backgroundColor:'green'}}
            scrollToOverflowEnabled={false}
-           
+           horizontal={true}
             data={['/rnlogo.png','apollo.png','graphql.png','strapi.png']}
         
             renderItem={renderItem}

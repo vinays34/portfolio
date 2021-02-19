@@ -22,7 +22,7 @@ export const projectData = [
         id:"2",
         title:"LA CARTE - DIGITAL MENU",
         desc:"A app for calling out numbers for a tambola game",
-        url:"https://play.google.com/store/apps/details?id=com.svinay.tambolanext",
+        url:"https://play.google.com/store/apps/details?id=com.lacarte.android",
         logo: "/lacarte.png",
         release:"Pending",
         lastUpdate : "-",
