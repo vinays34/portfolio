@@ -10,7 +10,7 @@ import WorkMain from '../Components/Work/WorkMain';
 import BlogMain from '../Components/Blog/BlogMain';
 import Contact from '../Components/Contact/Contact';
 import AboutMe from '../Components/AboutMe/AboutMe';
-
+import Head from 'next/head'
 
 
 export default function App() {
@@ -73,7 +73,11 @@ export default function App() {
   }
   return (
     <View style={styles.container} >
- <Text style={{fontSize:20,fontWeightL:"bold",fontFamilty:"Roboto",alignSelf:'center'}}>PAGE STILL UNDER CONSTRUCTION.</Text>
+       {/* <Head>
+        <title>My page title</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+ <Text style={{fontSize:20,fontWeightL:"bold",fontFamilty:"Roboto",alignSelf:'center'}}>PAGE STILL UNDER CONSTRUCTION.</Text> */}
     <View 
     ref={inputE2}
     style={{ shadowColor:'black',
