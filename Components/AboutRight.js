@@ -21,7 +21,7 @@ const AboutRight = (props)=>{
    const [hoverState,setHoverState] = useState(false)
     const renderItem =({item,index})=>{
         return (
-            <View style={{backgroundColor:'green',justifyContent:'center',padding:12}}>
+            <View style={{justifyContent:'center',padding:12}}>
                 <Hoverable onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
               <View
             
@@ -58,7 +58,7 @@ const AboutRight = (props)=>{
         
     
            
-           <View style={{backgroundColor:'red',padding:12,alignItems:'center',justifyContent:'center',width:'100%'}}>
+           <View style={{padding:12,alignItems:'center',justifyContent:'center',width:'100%'}}>
            {/* <Image
             source ={require("./../assets/rnlogo.png")}
             style={[styles.image]}
