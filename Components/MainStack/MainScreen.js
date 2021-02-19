@@ -119,7 +119,7 @@ useEffect(()=>{
         <View style={{height:bodyHeight}}>
          <BlogMain/>
         </View>
-        <View style={{height:bodyHeight}}>
+        <View style={{height:bodyHeight }}>
          <AboutMe/>
         </View>
         <View style={{height:bodyHeight}}>
