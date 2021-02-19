@@ -149,8 +149,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    maxWidth:1920,
-    alignSelf:'center',
+   
     width:'100%',
    
     alignItems: 'center',
