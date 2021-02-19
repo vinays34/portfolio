@@ -14,7 +14,7 @@ export const DATA = [
   },
   {
     title:"LA CARTE - DIGITAL MENU",
-    url:"https://play.google.com/store/apps/details?id=com.svinay.tambolanext",
+    url:"https://play.google.com/store/apps/details?id=com.lacarte.android",
     desc: "Digital menu for restaurents."
   },
   {
