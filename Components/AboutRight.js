@@ -78,7 +78,7 @@ const AboutRight = (props)=>{
             style={[styles.image]}
             /> */}
            <FlatList
-           contentContainerStyle={{backgroundColor:'green'}}
+           
            scrollToOverflowEnabled={false}
            horizontal={true}
             data={['/rnlogo.png','apollo.png','graphql.png','strapi.png']}
