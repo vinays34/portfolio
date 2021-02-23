@@ -11,6 +11,7 @@ import BlogMain from '../Components/Blog/BlogMain';
 import Contact from '../Components/Contact/Contact';
 import AboutMe from '../Components/AboutMe/AboutMe';
 import Head from 'next/head'
+import { useMediaQuery } from 'react-responsive';
 
 
 export default function App() {
@@ -43,6 +44,13 @@ export default function App() {
         break;
     }
   }
+
+  const isMobileDevice = useMediaQuery({    
+    maxDeviceWidth: 400,
+    // alternatively...
+    query: "(max-device-width: 400px)"  
+  });
+
   useEffect(()=>{
  
     scrollRef.current.scrollTo({x: 0, y: bodyHeight*navItemIndex, animated: true})
@@ -64,13 +72,7 @@ export default function App() {
       
     }
   },[inputEl])
-  const renderItems = ({item,index})=>{
-    <View style={{height:bodyHeight}}>
- {
-  dsiplayView(index)
- }
- </View>
-  }
+
   return (
     <View style={styles.container} >
        {/* <Head>
@@ -80,15 +82,22 @@ export default function App() {
  <Text style={{fontSize:20,fontWeightL:"bold",fontFamilty:"Roboto",alignSelf:'center'}}>PAGE STILL UNDER CONSTRUCTION.</Text> */}
     <View 
     ref={inputE2}
-    style={{ shadowColor:'black',
+    style={[{ shadowColor:'black',
         shadowOpacity:0.4,
-        shadowRadius:6,width:'100%',alignItems:'center'}}>
+        shadowRadius:6,width:'100%'},!isMobileDevice?{alignItems:'center'}:{flexDirection:'row',justifyContent:'space-between'}]}>
 <Image
      source={'/vs.png'}
      style={{height:40,width:40,borderRadius:4,margin:12}}
      />
     
-      <NavigationBar handleNavBarclick={handleNavBarclick} navItemIndex={navItemIndex}/>
+     {isMobileDevice?(
+       <Image
+       source={'/menu.png'}
+       style={{height:40,width:40,borderRadius:4,margin:12}}
+       />
+     ):(
+        <NavigationBar handleNavBarclick={handleNavBarclick} navItemIndex={navItemIndex}/>
+     )}
     </View>
      
       

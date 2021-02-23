@@ -28,7 +28,7 @@ const BlogMain = ()=>{
              <View 
               onPress={()=>{setBlogStatus(true)}}
               style={[{borderWidth:1,borderRadius:4,cursor:"pointer",borderColor:'red',padding:12},hoverindex?{backgroundColor:"red",borderWidth:0}:null]}>
-                   <Link href="/blogs" > 
+                   <Link href="https://blogs.vinays.dev" > 
                    <Text style={[hoverindex?{color:'white',fontWeight:'bold'}:null]}>CHECK OUT MY BLOG</Text>
                    </Link>
                    </View>

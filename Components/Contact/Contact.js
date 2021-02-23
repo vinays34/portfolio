@@ -10,34 +10,140 @@ import gql from 'graphql-tag';
 
 const Contact =()=>{
 
-    const ADD_SKILL = gql`
-mutation addSkill($id:String!, $name:String!, $level:Float!, $type:String!) {
-  addSkill(id:$id, name:$name, level:$level, type:$type) { 
-    status
-    id
-    name
-    level
-    type
+//     const ADD_SKILL = gql`
+// mutation addSkill($id:String!, $name:String!, $level:Float!, $type:String!) {
+//   addSkill(id:$id, name:$name, level:$level, type:$type) { 
+//     status
+//     id
+//     name
+//     level
+//     type
+//   }
+// }
+// `
+
+// axios
+// .post("https://morning-anchorage-88322.herokuapp.com/", {
+//   query: print(ADD_SKILL),
+//   variables: {
+//     id: "String(id)",
+//     name: "this.form.name",
+//     level: parseFloat("12"),
+//     type: "false",
+//   },
+// })
+// .then(res => console.log(res))
+// .catch(err => console.log(err))
+const LoadingScriptGAPI =()=>{
+  const script = document.createElement("script");
+    script.src = "https://apis.google.com/js/api.js";
+
+    script.onload = () => {
+      handleClientLoad()
+    };
+}
+var gapi ="https://apis.google.com/js/api.js";
+console.log("GAPI IS",gapi)
+var CLIENT_ID = '210827140367-6aackeeung5g039sgp3rtm2pktpkvhu6.apps.googleusercontent.com';
+      var API_KEY = 'AIzaSyABrbY3hLZfkT8bxyHdr9tLngD2FSvK1fw';
+
+      // Array of API discovery doc URLs for APIs used by the quickstart
+      var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+
+function initClient() {
+  gapi.client.init({
+    apiKey: API_KEY,
+    clientId: CLIENT_ID,
+    discoveryDocs: DISCOVERY_DOCS,
+    scope: SCOPES
+  }).then(function () {
+    // Listen for sign-in state changes.
+    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+    // Handle the initial sign-in state.
+    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+    authorizeButton.onclick = handleAuthClick;
+    signoutButton.onclick = handleSignoutClick;
+  }, function(error) {
+    appendPre(JSON.stringify(error, null, 2));
+  });
+}
+function updateSigninStatus(isSignedIn) {
+  if (isSignedIn) {
+    authorizeButton.style.display = 'none';
+    signoutButton.style.display = 'block';
+    listMajors();
+  } else {
+    authorizeButton.style.display = 'block';
+    signoutButton.style.display = 'none';
   }
 }
-`
 
-axios
-.post("https://morning-anchorage-88322.herokuapp.com/", {
-  query: print(ADD_SKILL),
-  variables: {
-    id: "String(id)",
-    name: "this.form.name",
-    level: parseFloat("12"),
-    type: "false",
-  },
-})
-.then(res => console.log(res))
-.catch(err => console.log(err))
+/**
+ *  Sign in the user upon button click.
+ */
+function handleAuthClick(event) {
+  gapi.auth2.getAuthInstance().signIn();
+}
 
+/**
+ *  Sign out the user upon button click.
+ */
+function handleSignoutClick(event) {
+  gapi.auth2.getAuthInstance().signOut();
+}
+
+/**
+ * Append a pre element to the body containing the given message
+ * as its text node. Used to display the results of the API call.
+ *
+ * @param {string} message Text to be placed in pre element.
+ */
+function appendPre(message) {
+  var pre = document.getElementById('content');
+  var textContent = document.createTextNode(message + '\n');
+  pre.appendChild(textContent);
+}
+
+/**
+ * Print the names and majors of students in a sample spreadsheet:
+ * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+ */
+function listMajors() {
+  gapi.client.sheets.spreadsheets.values.get({
+    spreadsheetId: '1csgKcs7gjnAAY1U9qmcdEJdSFnu4TvbHpXQcaLsPIhQ',
+    range: 'Class Data!A2:E',
+  }).then(function(response) {
+    var range = response.result;
+    if (range.values.length > 0) {
+      appendPre('Name, Major:');
+      for (i = 0; i < range.values.length; i++) {
+        var row = range.values[i];
+        // Print columns A and E, which correspond to indices 0 and 4.
+        appendPre(row[0] + ', ' + row[4]);
+      }
+    } else {
+      appendPre('No data found.');
+    }
+  }, function(response) {
+    appendPre('Error: ' + response.result.error.message);
+  });
+}
+function handleClientLoad() {
+  gapi.load('client:auth2', initClient);
+}
+useEffect(()=>{
+  LoadingScriptGAPI()
+},[])
 return(
     <View style={{flex:1}}>
+      <a href={"contactform.html"}>GO TO CONTACT FORM</a>
         <Subheader name={"CONTACT"}/>
+        <contactform/>
         <View style={{justifyContent:'center',alignItems:'center'}}>
         <Text>Hold your horses!Still Building this form...</Text>
         </View>

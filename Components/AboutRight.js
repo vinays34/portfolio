@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
-import {View,Text, Image, ImageBackground, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {View,Text, Image, ImageBackground, FlatList, StyleSheet, TouchableOpacity, Platform} from 'react-native';
 import Popover, { PopoverMode, PopoverPlacement } from 'react-native-popover-view/dist/Popover';
 import {
     useDimensions,
@@ -22,30 +22,31 @@ const AboutRight = (props)=>{
     const renderItem =({item,index})=>{
         return (
             <View style={{justifyContent:'center',padding:12}}>
-                <Hoverable onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
-              <View
-            
-              style={{height:120,width:120}} >
-             <Link
-             href={"/skills"}
-             >
-             <Image
-             
-             resizeMode={'cover'}
-            
-             source ={item} style={[
-                 styles.image,index===hoverindex?{height:120,width:120,cursor:'pointer', shadowColor: '#000',
-                 shadowOffset: { width: 0, height: 2 },
-                 shadowOpacity: 0.6,
-                 shadowRadius: 2}
-                 :
-                 null
-               ]} />
-               </Link>
               
-              </View>
-             
-              </Hoverable>
+                    <Hoverable onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
+                    <View
+                  
+                    style={{height:120,width:120}} >
+                   <Link
+                   href={"/skills"}
+                   >
+                   <Image
+                   
+                   resizeMode={'cover'}
+                  
+                   source ={item} style={[
+                       styles.image,index===hoverindex?{height:120,width:120,cursor:'pointer', shadowColor: '#000',
+                       shadowOffset: { width: 0, height: 2 },
+                       shadowOpacity: 0.6,
+                       shadowRadius: 2}
+                       :
+                       null
+                     ]} />
+                     </Link>
+                    
+                    </View>
+                   
+                    </Hoverable>
               <View style={{alignItems:'center'}}>
               <Text style={{posiiton:'absolute',textAlign:'center',fontFamilty:'Roboto',fontWeight:'bold'}}> {hoverindex===index?MAIN_TOOLS_DESC[index]:null}</Text>
               </View>
@@ -58,7 +59,7 @@ const AboutRight = (props)=>{
         
     
            
-           <View style={{padding:12,alignItems:'center',justifyContent:'center',width:'100%'}}>
+           <View style={{padding:12,alignItems:'center',justifyContent:'center'}}>
            {/* <Image
             source ={require("./../assets/rnlogo.png")}
             style={[styles.image]}
@@ -78,13 +79,14 @@ const AboutRight = (props)=>{
             style={[styles.image]}
             /> */}
            <FlatList
-           
+           contentContainerStyle={{flex:1,paddingRight:12,width:"100%",maxWidth:400}}
            scrollToOverflowEnabled={false}
-           horizontal={true}
+          
             data={['/rnlogo.png','apollo.png','graphql.png','strapi.png']}
         
             renderItem={renderItem}
             horizontal={true}
+            showsHorizontalScrollIndicator={false}
             />
            </View>
            <View style={{}}>
