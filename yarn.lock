@@ -9542,6 +9542,19 @@ react-native-iphone-x-helper@^1.3.0:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
   integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
 
+react-native-media-queries@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-media-queries/-/react-native-media-queries-0.3.0.tgz#21d0d43cc4914a7ac7b1141625614d55836d13fe"
+  integrity sha1-IdDUPMSRSnrHsRQWJWFNVYNtE/4=
+
+react-native-media-query@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-media-query/-/react-native-media-query-1.0.3.tgz#05ab2dfb05c75a7862fe76a19e29e21d986514fb"
+  integrity sha512-4cu/NfZIHmimwhzShLdN+xMazkMrq5czl+Bpe2yn55sril41WVcVs2zD40YwJiOuIUKK60jEGmt81X6FfedtEQ==
+  dependencies:
+    css-mediaquery "^0.1.2"
+    string-hash "^1.1.3"
+
 react-native-popover-view@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-3.1.1.tgz#d55e6856ec81b2823342fda57e28974947bc8d39"
@@ -10590,7 +10603,7 @@ strict-uri-encode@^2.0.0:
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
   integrity sha1-ucczDHBChi9rFC3CdLvMWGbONUY=
 
-string-hash@1.1.3:
+string-hash@1.1.3, string-hash@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/string-hash/-/string-hash-1.1.3.tgz#e8aafc0ac1855b4666929ed7dd1275df5d6c811b"
   integrity sha1-6Kr8CsGFW0Zmkp7X3RJ1311sgRs=

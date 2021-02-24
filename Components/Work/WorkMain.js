@@ -5,7 +5,26 @@ import { DATA, DESC } from '../../Constant/TextConstants';
 import Typed from 'react-typed';
 import Subheader from '../../Constant/Subheader';
 import Link from 'next/link';
+
+import { useMediaQuery } from 'react-native-media-query';
 const WorkMain = ()=>{
+
+    const styles1 = {
+        flatList:{
+            '@media (max-width: 600px)': {
+                width:'100%'
+            },
+        },
+        carousel: {
+            '@media (max-width: 600px)': {
+             
+          },
+        }
+      }
+    
+      
+      const [ids, styles] = useMediaQuery(styles1);
+
     const bgColors = ["#F9564F","#FF5376","#717EC3"];
     const [hoverindex,sethoverindex] = useState(null);
     const renderItem =({item,index})=>{
@@ -62,13 +81,17 @@ const WorkMain = ()=>{
         </View>
       <View style={{justifyContent:'center',flex:1,backgorundColor:'red'}}>
       <View style={{alignItems:'center',justifyContent:'center'}}>
-       <FlatList
+      <View dataSet={{ media: ids.flatList }}>
+      <FlatList
         data={DATA}
         contentContainerStyle={{padding:12}}
         renderItem={renderItem}
         horizontal={true}
 
         />
+      </View>
+
+
        </View>
       <Link href="/work">
       <View style={{alignItems:'center'}}><Text style={{color:"#FCA311",fontWeight:'bold',cursor:'pointer'}}>and theres more...</Text></View>

@@ -79,7 +79,7 @@ const AboutRight = (props)=>{
             style={[styles.image]}
             /> */}
            <FlatList
-           contentContainerStyle={{flex:1,paddingRight:12,width:"100%",maxWidth:400}}
+           contentContainerStyle={{flex:1,paddingRight:12,width:"100%",maxWidth:800}}
            scrollToOverflowEnabled={false}
           
             data={['/rnlogo.png','apollo.png','graphql.png','strapi.png']}
