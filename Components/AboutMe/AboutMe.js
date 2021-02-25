@@ -1,15 +1,26 @@
 import React from 'react';
 import {View,Text, Image} from 'react-native';
-import { useMediaQuery } from 'react-responsive';
 import Subheader from '../../Constant/Subheader';
 import { BLOGDATA } from '../../Constant/TextConstants';
+import { useMediaQuery } from 'react-native-media-query';
 
 const AboutMe = ()=>{
-  const isTabletOrMobileDevice = useMediaQuery({    
-    maxDeviceWidth: 1224,
-    // alternatively...
-    query: "(max-device-width: 1224px)"  
-  });
+ 
+  const styles1 = {
+    container:{
+          '@media (max-width: 600px)': {
+              flexDirection:'column'
+          },
+      },
+      carousel: {
+          '@media (max-width: 600px)': {
+           
+        },
+      }
+    }
+  
+    
+    const [ids, styles] = useMediaQuery(styles1);
     return(
       <View style={{flex:1}}>
           {/* <View style={{position:'absolute'}}>
@@ -18,7 +29,7 @@ const AboutMe = ()=>{
           <View
           style={{borderWidth:0.001,borderColor:'grey'}}/> */}
          <Subheader name="ABOUT ME"/>
-            <View style={[{justifyContent:'center',alignItems:'center',flex:1},isTabletOrMobileDevice?null:{flexDirection:'row'}]}>
+            <View style={[{justifyContent:'center',alignItems:'center',flex:1}]}>
            
            <Image
            style={{height:200,width:200,borderRadius:100}}

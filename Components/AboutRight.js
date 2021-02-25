@@ -12,16 +12,49 @@ import {
     Hoverable,
   } from 'react-native-web-hooks';
 import { MAIN_TOOLS_DESC } from '../Constant/TextConstants';
-
+import { useMediaQuery } from 'react-native-media-query';
 
 
 const AboutRight = (props)=>{
+    const styles1 = {
+        image:{
+            height:100,width:100,borderRadius:12,margin:12,
+            
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.4,
+            shadowRadius: 2,
+            padding:12.
+            
+        },
+        hover:{
+            backgroundColor:'red',
+          // cursor:"pointer"
+        },
+        flatList:{
+           
+            flex:1,
+            '@media (max-width: 600px)': {
+                width:315
+            },
+        },
+        carousel: {
+            '@media (max-width: 600px)': {
+             
+          },
+        }
+      }
+    
+      
+      const [ids, styles] = useMediaQuery(styles1);
     const [showPopover, setShowPopover] = useState(false);
    const [hoverindex,sethoverindex] = useState(null);
    const [hoverState,setHoverState] = useState(false)
     const renderItem =({item,index})=>{
         return (
-            <View style={{justifyContent:'center',padding:12}}>
+            <View
+            key={index}
+            style={{justifyContent:'center',padding:12}}>
               
                     <Hoverable onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
                     <View
@@ -78,8 +111,9 @@ const AboutRight = (props)=>{
             source ={require("./../assets/strapi.svg")}
             style={[styles.image]}
             /> */}
-           <FlatList
-           contentContainerStyle={{flex:1,paddingRight:12,width:"100%",maxWidth:800}}
+          <View style={styles.flatList} dataSet={{ media: ids.flatList }}>
+          <FlatList
+          
            scrollToOverflowEnabled={false}
           
             data={['/rnlogo.png','apollo.png','graphql.png','strapi.png']}
@@ -88,6 +122,7 @@ const AboutRight = (props)=>{
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             />
+          </View>
            </View>
            <View style={{}}>
               
@@ -111,20 +146,5 @@ const AboutRight = (props)=>{
         </View>
     )
 }
-const styles = StyleSheet.create({
-    image:{
-        height:100,width:100,borderRadius:12,margin:12,
-        
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.4,
-        shadowRadius: 2,
-        padding:12.
-        
-    },
-    hover:{
-        backgroundColor:'red',
-      // cursor:"pointer"
-    }
-})
+
 export default AboutRight;

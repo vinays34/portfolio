@@ -29,9 +29,11 @@ const WorkMain = ()=>{
     const [hoverindex,sethoverindex] = useState(null);
     const renderItem =({item,index})=>{
         return(
-            <>
-            <Hoverable onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
-               <a style={{textDecoration:"none"}} href={item.url} target="_blank">
+            <View  key={index}>
+            <Hoverable
+           
+            onHoverIn={()=>{sethoverindex(index)}} onHoverOut={()=>{sethoverindex(null)}}>
+              
                <View style={[{
                     height:250,
                     width:300,
@@ -66,10 +68,10 @@ const WorkMain = ()=>{
                     ):null}
                 </View>
 
-               </a>
+              
                 </Hoverable>
                      
-                </>
+                </View>
            
         )
     }
@@ -81,7 +83,7 @@ const WorkMain = ()=>{
         </View>
       <View style={{justifyContent:'center',flex:1,backgorundColor:'red'}}>
       <View style={{alignItems:'center',justifyContent:'center'}}>
-      <View dataSet={{ media: ids.flatList }}>
+      <View style={ styles.flatList} dataSet={{ media: ids.flatList }}>
       <FlatList
         data={DATA}
         contentContainerStyle={{padding:12}}

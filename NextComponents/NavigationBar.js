@@ -39,23 +39,23 @@ const NavigationBar = (props) => {
   const [navItemSelected, setnavItemSelected] = useState(0);
   const navData = [
     {
-      id: 0,
+      id: "0",
       title: "Home",
     },
     {
-      id: 1,
+      id: "1",
       title: "Work",
     },
     {
-      id: 2,
+      id: "2",
       title: "Blog",
     },
     {
-      id: 3,
+      id: "3",
       title: "About",
     },
     {
-      id: 4,
+      id: "4",
       title: "Contact",
     },
   ];
@@ -66,7 +66,7 @@ const NavigationBar = (props) => {
   const renderItem = ({ item, index }) => {
     return (
       <View
-      
+       key={index}
         style={[
           styles.navitem,
           navItemSelected === index
