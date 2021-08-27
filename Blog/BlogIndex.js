@@ -10,14 +10,18 @@ import { useEffect } from 'react';
 const BlogIndex = (props)=>{
     useEffect(()=>{
         console.log("Blog inedex props",props)
-        return console.log("Blog inedex props on return",props)
+        return ()=>{
+            snowplow('trackPageView', "Exit Blogs")
+        }
     })
+    snowplow('trackPageView',{name:"Blogs page"});
+    snowplow('enableActivityTracking', 30, 10);
     const [limit,setLimit] = useState(5)
     const [offset, setOffset ] = useState(0)
     const [loadFooter,setLoadFooter ] = useState(0)
      
     const [extraData,setExtraData] = useState(false)
-    const {data,error,loading, fetchMore,refetch} = useQuery(BLOG_QUERY_MAIN,{
+    const {data,error,loading, fetchMore} = useQuery(BLOG_QUERY_MAIN,{
         variables:{
             limit:limit,
             offset:offset
@@ -31,9 +35,15 @@ const BlogIndex = (props)=>{
         console.log("Loading",loading)
     }
     const renderBlogs = ({item,index})=>{
-        console.log("item",item)
+         
         return(
-            <View style={{margin:12,alignItems:'center',backgroundColor:"blue",padding:12 }}>
+            <TouchableOpacity 
+            onPress={()=>{
+                 props.navigation.navigate("BlogPost",{
+                     id:item.id
+                 })
+            }}
+            style={{margin:12,alignItems:'center',backgroundColor:"blue",padding:12 }}>
               <Image
               style={{height:120,width:"100%"}}
               source={item.coverimage}
@@ -42,7 +52,7 @@ const BlogIndex = (props)=>{
            <Text>{item.title}</Text>
             <Text>{item.author}</Text>
            </View>
-            </View>
+            </TouchableOpacity>
         )
     }
     return (

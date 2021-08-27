@@ -18,3 +18,17 @@ query($limit:Int, $offset:Int ){
     }
   }
 `
+export const GET_SINGLE_BLOG = gql`
+query($blog_id:ID!){
+  vsBlog(id:$blog_id){
+    id
+    title
+    author
+    post
+    created_at
+    rating
+    upvotes
+    downvotes
+  }
+}
+`

@@ -20,6 +20,7 @@ import Index from './Components/MainStack/Index';
 import BlogIndex from './Blog/BlogIndex';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './ApolloProvider/ApolloClient';
+import BlogPost from './Blog/BlogPost';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -45,8 +46,9 @@ export default function App() {
   // }
   const config = {
     screens: {
-      MainScreen: '/',
+      MainScreen: '',
       BlogIndex:'/blog',
+      BlogPost:'/blog/post/:id',
       Tools: '/skills',
       PrivacyPolicy: '/privacypolicy',
       NotFound: '*',
@@ -58,9 +60,12 @@ export default function App() {
           routes: [
             {
               name: 'BlogIndex',
-              name:'MainScreen'
+              
               
             },
+            {
+              name:'MainScreen'
+            }
           ],
         },
        
@@ -83,6 +88,7 @@ export default function App() {
        
         <Stack.Screen name="MainScreen" component={Index} options={{title:"Home"}}/>
         <Stack.Screen name="BlogIndex" component={BlogIndex}/>
+        <Stack.Screen name="BlogPost" component = {BlogPost}/>
         <Stack.Screen name="Tools" component={Tools}/>
         <Stack.Screen name={"NotFound"} component={Contact}/> 
       </Stack.Navigator>
