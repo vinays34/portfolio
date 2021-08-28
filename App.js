@@ -21,7 +21,9 @@ import BlogIndex from './Blog/BlogIndex';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './ApolloProvider/ApolloClient';
 import BlogPost from './Blog/BlogPost';
-
+import { Provider as PaperProvider } from 'react-native-paper';
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
 const Stack = createStackNavigator();
 export default function App() {
   const inputEl = useRef(null);
@@ -76,8 +78,18 @@ export default function App() {
    state
   };
 
+  let [fontsLoaded] = useFonts({
+    'roboto': require('./assets/fonts/Roboto-Regular.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }else{
+
+
   return (
     <ApolloProvider client={client}>
+       <PaperProvider>
      <NavigationContainer linking={linking}  fallback={<Text>Loading...</Text>}>
       <Stack.Navigator
       screenOptions={
@@ -93,10 +105,11 @@ export default function App() {
         <Stack.Screen name={"NotFound"} component={Contact}/> 
       </Stack.Navigator>
     </NavigationContainer>
+    </PaperProvider>
     </ApolloProvider>
      
     
-  );
+  );  }
 }
 
 const styles = StyleSheet.create({

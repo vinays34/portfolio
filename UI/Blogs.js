@@ -1,22 +1,34 @@
 import React from 'react';
 import { useState } from 'react';
-import { View,Text, TouchableOpacity, StyleSheet  } from 'react-native';
+import { View,Text, TouchableOpacity, StyleSheet, Image  } from 'react-native';
+import { Subheading, Title } from 'react-native-paper';
+import CustomTabHeader from '../Constant/CustomTabHeader';
 
 const Blogs = (props)=>{
     const [hoverItem,setHoverItem] = useState(false)
     return(
         <View style={{ flex:1}}>
             <View style={{alignItems:'center'}}>
-            <Text>Blogs</Text>
+           
             </View>
             <View style={{flexDirection:'row',flex:1}}>
                 <View style={{flex:1,alignItems: 'center',justifyContent: 'center',}}>
                <View>
-               <Text >Why and What I write...</Text>
-                <Text>I believe in sharing my knowledge with other is <br/>one of the best ways to hone your own skills.</Text>
+               <Image
+               source={require("./../assets/blogicon.png")}
+               style={{width:400,height:250,alignSelf:'center'}}
+               resizeMode="contain"
+               />
+              
                </View>
                 </View>
-                <View style={{flex:1,alignItems: 'center',justifyContent: 'center' }}>
+                <View style={{flex:1,alignItems: 'center',justifyContent: 'center',margin:12 }}>
+                
+                <Title >Why and What I write...</Title>
+                <Subheading>I believe in sharing my knowledge with others is <br/>one of the best ways to hone your own skills.
+                
+                </Subheading>
+               
                 <TouchableOpacity
             onMouseEnter={()=>{setHoverItem(true)}}
             onMouseLeave={()=>{setHoverItem(false)}}

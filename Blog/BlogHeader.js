@@ -1,35 +1,23 @@
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity,  } from 'react-native';
+import { Title } from 'react-native-paper';
 
 const BlogHeader = ()=>{
-    const [blogname, setBlogname] = useState("")
+    
     return (
-        <View>
+        <View style={{backgroundColor:"#F7BF50"}}>
             <View style={{flexDirection:'row',justifyContent:'space-between',padding:4}}>
-            <View style={{justifyContent:'center'}} >
-            <Text>VS BLOGS </Text>
+             
+            <Title style={{fontWeight:"bold"}}>VS BLOGS </Title>
+            <View style={{ justifyContent: 'center', }}>
+                <Text>Follow me on:</Text>
             </View>
-            <View style={{flexDirection:'row'}}>
-              <View style={{flexDirection:'row'}}>
-              <TextInput
-              style={{borderWidth:1, borderColor:'green' }}
-              placeholder={"Search blogs here..."}
-              value={blogname}
-              onChangeText={setBlogname}
-              />
-              <TouchableOpacity style={{backgroundColor:'blue', padding:8}}>
-                  <Text>Search</Text>
-              </TouchableOpacity>
-              </View>
-              <View style={{justifyContent:'center'}}>
-                  <Text>Category</Text>
-              </View>
-            </View>
+           
         </View>
-        <View style={{padding:12,backgroundColor:'brown'}}>
+        {/* <View style={{padding:12 }}>
             <Text>Easy filter</Text>
-        </View>
+        </View> */}
         </View>
     )
 }
