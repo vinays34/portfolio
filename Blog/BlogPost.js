@@ -4,9 +4,12 @@ import { View,Text, ScrollView, ActivityIndicator } from 'react-native';
 import { GET_SINGLE_BLOG } from './Queries';
 import Markdown from 'react-native-markdown-display';
 import date from 'date-and-time';
+import { decryption } from '../Constant/utility';
+import { Caption, Divider, Paragraph, Title } from 'react-native-paper';
 const BlogPost = (props)=>{
     console.log("Props.navigation:",props.route.params,window.location.href)
-    const blog_id = props.route.params.id
+    const blog_id =  props.route.params.id 
+    console.log("Blog is after decryption is ",props.route.params.id,blog_id)
     const {data,error,loading} = useQuery(GET_SINGLE_BLOG,{
         variables:{
             blog_id:blog_id
@@ -22,24 +25,37 @@ const BlogPost = (props)=>{
               </View>
            <View style={{ flex:4,backgroundColor:'#fff'}}>
             
-          <View style={{flexDirection:'row',justifyContent:'space-between', backgroundColor:"red",padding:12}}>
-          <Text  >VS BLOGS</Text>
-          <Text  >Links to social media goes here!</Text>
+          <View style={{flexDirection:'row',justifyContent:'space-between' ,padding:12,backgroundColor:"#F7BF50"}}> 
+          <Title>VS BLOGS</Title>
+          
           </View>
+          <Divider  />
            {data&&(
                <ScrollView
                contentContainerStyle={{ padding:12}}
                contentInsetAdjustmentBehavior="automatic"
                style={{height: '100%'}}
              >
-                 <Text>{data.vsBlog.title}</Text>
+                 <Title>{data.vsBlog.title}</Title>
                  <View >
-                     <Text>{data.vsBlog.author},</Text>
-                     <Text>{date.format(new Date(data.vsBlog.created_at), 'ddd MMM DD YYYY')}</Text>
+                     <Paragraph>{data.vsBlog.vs_author.name},</Paragraph>
+                     <Caption>{date.format(new Date(data.vsBlog.created_at), 'ddd MMM DD YYYY')}</Caption>
                  </View>
-               <Markdown>
+               <Markdown
+               style={markdownStyles}
+               >
                   {data.vsBlog.post}
                </Markdown>
+               <Divider  />
+               <View style={{flexDirection:'row'}}>
+                   <View style={{flex:1}}>
+                   <Text>Rate this article</Text>
+                   </View>
+                   <View style={{flexDirection:'row',alignItems: 'center',}}>
+                   <Text>Upvotes:{data.vsBlog.upvotes} || </Text>
+                   <Text>Downvotes:{data.vsBlog.downvotes}</Text>
+                   </View>
+               </View>
              </ScrollView>
            )}
            {loading&&(
@@ -56,4 +72,22 @@ const BlogPost = (props)=>{
         </View>
     )
 }
+const markdownStyles = {
+    heading1: {
+      fontSize: 24,
+      color: 'purple',
+    },
+    link: {
+      color: 'pink',
+    },
+    mailTo: {
+      color: 'orange',
+    },
+    text: {
+        
+      fontSize:16,
+      color: '#151515',
+      fontFamily:"roboto"
+    },
+  };
 export default BlogPost;

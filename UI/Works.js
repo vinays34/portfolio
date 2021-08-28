@@ -2,16 +2,24 @@ import React, { useState } from 'react';
 import { View,Text, FlatList, TouchableOpacity  } from 'react-native';
 import { PROJECTS } from './DataConstants';
 import Typed from 'react-typed';
-
+import CustomTabHeader from '../Constant/CustomTabHeader';
+import { LinearGradient } from 'expo-linear-gradient';
 const Works = ()=>{
     const [selectedId,setSelectedId] = useState("")
+
+   
     const renderProjects=({item,index})=>{
+         
         return(
             <TouchableOpacity 
 onMouseEnter={()=>setSelectedId(item.title)}
 onMouseLeave={()=>setSelectedId("")}
             onPress={()=>{window.open(item.url)}}
-            style={{height:250,width:250,margin:24,backgroundColor:item.color,alignItems:'center',justifyContent: 'center',borderRadius:12,padding:12}}>
+            style={{height:250,width:250,margin:24 ,alignItems:'center',justifyContent: 'center',borderRadius:12,padding:12}}>
+                <LinearGradient
+        // Button Linear Gradient
+        colors={item.color}
+        style={ {height:250,width:250,margin:24 ,alignItems:'center',justifyContent: 'center',borderRadius:12,padding:12}}>
                 <Text
                 style={{color:"#fff",fontSize:18,fontWeight:'bold',fontFamily:'Roboto',textAlign:'center'}}
                 >{item.title}</Text>
@@ -24,17 +32,16 @@ onMouseLeave={()=>setSelectedId("")}
                     showCursor={false} 
                     />
                )}
-
+      </LinearGradient>
                 
             </TouchableOpacity>
         )
     }
     return(
-        <View style={{flex:1,alignItems:'center',justifyContent: 'center' }}>
-            <Text
-                style={{ fontSize:18,fontWeight:'bold',fontFamily:'Roboto',alignSelf:'center'}}
-                >My Works</Text>
-           <View>
+        <View style={{flex:1,alignItems:'center',justifyContent: 'center'  }}>
+           
+           <View style={{flex:1,justifyContent:'center'}}>
+           <View style={{}}>
            <FlatList
             contentContainerStyle={{ alignSelf:'center'}}
             horizontal
@@ -42,11 +49,13 @@ onMouseLeave={()=>setSelectedId("")}
             renderItem={renderProjects}
             
             />
-           </View>
-            <View>
             <Text
                 style={{ fontSize:18,fontWeight:'bold',fontFamily:'Roboto',alignSelf:'center'}}
                 >and more ...</Text>
+           </View>
+           </View>
+            <View>
+            
             </View>
         </View>
     )

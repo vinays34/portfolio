@@ -8,7 +8,7 @@ const Home = (props)=>{
     
       const renderTools=({item,index})=>{
           return(
-              <View style={{alignItems: 'center',justifyContent: 'center',margin:12}}>
+              <View key={item.id} style={{alignItems: 'center',justifyContent: 'center',margin:12}}>
                   <Image
                   style={{height:80,width:80}}
                   source={item.image}
