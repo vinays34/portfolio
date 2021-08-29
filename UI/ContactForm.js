@@ -61,6 +61,7 @@ const ContactForm = () => {
             alignSelf: "center",
             borderRadius: 12,
             width:"90%",
+            maxWidth:400,
             padding:12,
             boxShadow:"2px 2px 5px #e2e2e2"
           }}
