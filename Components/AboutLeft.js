@@ -1,11 +1,23 @@
 import React, { useRef, useState } from 'react';
-import {View,Text, Animated} from 'react-native';
+import { useEffect } from 'react';
+import {View,Text, Animated, useWindowDimensions} from 'react-native';
 import Typed from 'react-typed';
 import { fadeIn } from '../utils';
 const AboutLeft =()=>{
     const [tagLineDisplay,setTagLineDisplay] = useState(false)
     const [secondLine,setSecondline] = useState(false)
     const fadeAnim = useRef(new Animated.Value(0)).current;
+    const [device,setDevice] = useState("web"); 
+    const windowWidth = useWindowDimensions().width;
+    useEffect(()=>{
+         if(windowWidth<1920 && windowWidth>1100){
+            setDevice("web")
+         }else if(windowWidth<1100 && windowWidth>600){
+            setDevice("tab")
+        }else if(windowWidth<600  ){
+            setDevice("mob") 
+        }
+    },[windowWidth])
     return (
         <View style={{flex:1,justifyContent:'center'}}>
             <View>
@@ -13,7 +25,7 @@ const AboutLeft =()=>{
           
            <Typed
          
-           style={{fontSize:48,fontWeight:'bold',fontFamily:'Roboto',color:'red'}}
+           style={{fontSize:48,fontWeight:'bold',fontFamily:'Roboto',color:'red',alignSelf:'center'}}
                     strings={['VINAY']}
                     typeSpeed={80}
                     showCursor={false}
@@ -27,7 +39,7 @@ const AboutLeft =()=>{
            {secondLine?(
                <Typed
          
-               style={{fontSize:48,fontWeight:'bold',fontFamily:'Roboto'}}
+               style={{fontSize:48,fontWeight:'bold',fontFamily:'Roboto',alignSelf:'center'}}
                         strings={['SOUNDERRAJ']}
                         typeSpeed={80}
                         showCursor={false}

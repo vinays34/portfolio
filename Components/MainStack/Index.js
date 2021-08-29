@@ -12,9 +12,20 @@ import AboutMe from "../AboutMe/AboutMe";
 import AboutContact from "../../UI/AboutContact";
 import ContactForm from "../../UI/ContactForm";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 const Index = (props) => {
-  const [selectedNavitem, setSelectedNavItem] = useState(NAV_BAR_DATA[0].id);
   const windowHeight = useWindowDimensions().height;
+  const styles = StyleSheet.create({
+    icon:{
+        marginHorizontal:6
+    },
+    containerItems :{
+         height:windowHeight,
+         maxHeight:1080
+    }
+  })
+  const [selectedNavitem, setSelectedNavItem] = useState(NAV_BAR_DATA[0].id);
+  
   const inputEl = useRef(null);
    
   const scrollRef = useRef(null);
@@ -26,39 +37,39 @@ const Index = (props) => {
         console.log("height:", height);
       });
     }
-  }, [inputEl]);
+  }, [inputEl,windowHeight]);
   const renderBodyItems = ({ item, index }) => {
     switch (item.id) {
       case "0":
         return (
-          <View style={{ height: windowHeight }}>
+          <View style={[styles.containerItems]} >
             <Home />
           </View>
         );
       case "1":
         return (
-          <View style={{ height: windowHeight }}>
+          <View style={[styles.containerItems]} >
             <CustomTabHeader title="Works" />
             <Works />
           </View>
         );
       case "2":
         return (
-          <View style={{ height: windowHeight }}>
+          <View style={[styles.containerItems]} >
             <CustomTabHeader title="Blogs" />
             <Blogs navigation={props.navigation} />
           </View>
         );
       case "3":
         return (
-          <View style={{ height: windowHeight }}>
+          <View style={[styles.containerItems]}>
             <CustomTabHeader title="About" />
             <AboutContact navigation={props.navigation} />
           </View>
         );
         case "4":
             return (
-              <View style={{ height: windowHeight }}>
+              <View style={[styles.containerItems]} >
                 <CustomTabHeader title="Contact" />
                 <ContactForm navigation={props.navigation} />
               </View>
@@ -72,8 +83,10 @@ const Index = (props) => {
         viewOffset:10
     })
   }
-  const HandleScroll = (event)=>{ 
-    setSelectedNavItem((Math.round(event.nativeEvent.contentOffset.y/bodyHeight)).toString())
+  const HandleScroll = (event)=>{  
+    setTimeout(()=>{
+      setSelectedNavItem((Math.round(event.nativeEvent.contentOffset.y/bodyHeight)).toString())
+    },500)
    }
    const iconCLick=(ele)=>{
      console.log("THis ",ele)
@@ -97,8 +110,9 @@ const Index = (props) => {
        </View>
     )
   }
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1,width:'100%',maxWidth:1920,alignSelf:'center' }}>
       <Header
         selectedNavitem={selectedNavitem}
         setSelectedNavItem={navBarSelection}
@@ -117,10 +131,7 @@ const Index = (props) => {
       </View>
     </View>
   );
+  
 };
-const styles = StyleSheet.create({
-  icon:{
-      marginHorizontal:6
-  }
-})
+
 export default Index;

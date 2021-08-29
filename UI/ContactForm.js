@@ -60,7 +60,7 @@ const ContactForm = () => {
             backgroundColor: "#fff",
             alignSelf: "center",
             borderRadius: 12,
-            minWidth: 400,
+            width:"90%",
             padding:12,
             boxShadow:"2px 2px 5px #e2e2e2"
           }}
