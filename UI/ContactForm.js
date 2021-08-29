@@ -35,7 +35,7 @@ const ContactForm = () => {
         .post("https://secret-island-95358.herokuapp.com/contact", {
           name: name,
           email: email,
-          comment: "You have a new contact request",
+          comment: comment,
         })
         .then(()=>{} )
         .catch(()=>{});
