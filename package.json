@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "next build"
+    "build": "expo build:web"
   },
   "dependencies": {
     "@apollo/client": "^3.4.9",
