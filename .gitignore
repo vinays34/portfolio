@@ -7,7 +7,7 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
+# web-build/
 
 # macOS
 .DS_Store
@@ -15,7 +15,7 @@ web-build/
 # @generated: @expo/next-adapter@2.1.55
 /.expo/*
 # Expo Web
-/web-build/*
+# /web-build/*
 # Expo Native
 *.jks
 *.p8
