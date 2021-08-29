@@ -7,16 +7,16 @@ import date from 'date-and-time';
 import { decryption } from '../Constant/utility';
 import { Caption, Divider, Paragraph, Title } from 'react-native-paper';
 const BlogPost = (props)=>{
-    console.log("Props.navigation:",props.route.params,window.location.href)
+   
     const blog_id =  props.route.params.id 
-    console.log("Blog is after decryption is ",props.route.params.id,blog_id)
+   
     const {data,error,loading} = useQuery(GET_SINGLE_BLOG,{
         variables:{
             blog_id:blog_id
         }
     })
     if(data){
-        console.log("Data",data)
+        
     }
     return (
         <View style={{flex:2,flexDirection:'row'}}>

@@ -23,23 +23,23 @@ const ContactForm = () => {
   const [submitButtobHover, setsubmitButtobHover] = useState(false);
   const sendMail = () => {
     if (name.length > 0 && email.length > 0 && comment.length > 0) {
-      console.log("Hitting loalhost axios !");
+      
     
-    axios.post("http://localhost:1337/vs-contacts",{
-        name: name,
-        email: email,
-        phone:phone,
-        message: comment, 
-    }).then(()=>{
+    // axios.post("http://localhost:1337/vs-contacts",{
+    //     name: name,
+    //     email: email,
+    //     phone:phone,
+    //     message: comment, 
+    // }).then(()=>{
         axios
         .post("https://secret-island-95358.herokuapp.com/contact", {
           name: name,
           email: email,
           comment: "You have a new contact request",
         })
-        .then((res) => console.log("response is", res))
-        .catch((err) => console.log("error is", err));
-    })
+        .then(()=>{} )
+        .catch(()=>{});
+    // })
     }
     // axios.post('http://localhost:8080/contact', {
 

@@ -30,8 +30,7 @@ const BlogIndex = (props) => {
     alignSelf: "center",
   };
   const [blogname, setBlogname] = useState("");
-  useEffect(() => {
-    console.log("Blog inedex props", props);
+  useEffect(() => { 
     return () => {
       
     };
@@ -54,14 +53,13 @@ const BlogIndex = (props) => {
     }
   );
   if (data) {
-    console.log("data", data);
-    console.log("client1", client);
+    
   }
   if (loading) {
-    console.log("Loading", loading);
+     
   }
   if(error){
-      console.log("Error ",error)
+      
   }
   const renderBlogs = ({ item, index }) => {
     return (
@@ -100,8 +98,7 @@ const BlogIndex = (props) => {
   };
   const searchFunction = (val) => {
     setBlogname(val);
-    console.log("val", val);
-
+    
     refetch({
       limit: 6,
       offset: 0,
@@ -110,12 +107,11 @@ const BlogIndex = (props) => {
   };
   const checkBoxValidation=(val)=>{
       //Add to array if checkbox value is not in array and vice versa
-      console.log("Val ",categories,categories.indexOf(val))
       if(categories.indexOf(val)>=0){
           //remove category from array
             let temp = categories;
             temp.splice(temp.indexOf(val), 1);
-            console.log("temp -s",temp)
+            
             setCategories("temp")
             setCategories([...temp])
           
@@ -126,7 +122,7 @@ const BlogIndex = (props) => {
       }
   }
 useEffect(()=>{
-    console.log("categories ",categories)
+    
 },[categories])
   const listFooterComponent = () => {
     if (loadFooter) {
@@ -149,7 +145,7 @@ useEffect(()=>{
                 },
               }).then((res) => {
                 setLoadFooter(false);
-                console.log("client res", data);
+                
               });
             }}
           >

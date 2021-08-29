@@ -34,7 +34,7 @@ const Index = (props) => {
     if (inputEl.current) {
       inputEl.current.measure((fx, fy, width, height, px, py) => {
         setBodyHeight(height);
-        console.log("height:", height);
+        
       });
     }
   }, [inputEl,windowHeight]);
@@ -89,7 +89,7 @@ const Index = (props) => {
     },500)
    }
    const iconCLick=(ele)=>{
-     console.log("THis ",ele)
+     
    }
   const listFooterComponent=()=>{
     return (
