@@ -118,7 +118,7 @@ const Index = (props) => {
         setSelectedNavItem={navBarSelection}
       />
 
-      <View ref={inputEl} style={{ flex: 1 }}>
+      <View ref={inputEl} style={{ flex: 1,height: bodyHeight }}>
         <View style={{ height: bodyHeight }}>
           <FlatList
           showsVerticalScrollIndicator={false}
