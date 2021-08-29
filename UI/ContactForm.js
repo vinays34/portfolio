@@ -28,8 +28,8 @@ const ContactForm = () => {
     axios.post("http://localhost:1337/vs-contacts",{
         name: name,
         email: email,
-        phone:"",
-        comment: comment, 
+        phone:phone,
+        message: comment, 
     }).then(()=>{
         axios
         .post("https://secret-island-95358.herokuapp.com/contact", {

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { View, Text, ScrollView, FlatList } from "react-native"; 
+import { View, Text, ScrollView, FlatList, Image, StyleSheet } from "react-native"; 
 import { NAV_BAR_DATA } from "../../UI/DataConstants";
 import Header from "../../UI/Header";
 import Home from "./../../UI/Home";
@@ -11,6 +11,7 @@ import CustomTabHeader from "../../Constant/CustomTabHeader";
 import AboutMe from "../AboutMe/AboutMe";
 import AboutContact from "../../UI/AboutContact";
 import ContactForm from "../../UI/ContactForm";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 const Index = (props) => {
   const [selectedNavitem, setSelectedNavItem] = useState(NAV_BAR_DATA[0].id);
   const windowHeight = useWindowDimensions().height;
@@ -74,6 +75,28 @@ const Index = (props) => {
   const HandleScroll = (event)=>{ 
     setSelectedNavItem((Math.round(event.nativeEvent.contentOffset.y/bodyHeight)).toString())
    }
+   const iconCLick=(ele)=>{
+     console.log("THis ",ele)
+   }
+  const listFooterComponent=()=>{
+    return (
+       <View style={{ backgroundColor:"#2e2e2e", alignItems: 'center',padding:40}}>
+          <Image
+          source={require("./../../assets/vs.png")}
+          style={{height:60,width:60,borderRadius:8}}
+          />
+          <View style={{flexDirection:'row',padding:12}}>
+          <MaterialCommunityIcons
+          onPress={()=>iconCLick("insta")}
+          style={[styles.icon]} name="instagram" size={24} color="#C13584" />
+          <MaterialCommunityIcons style={[styles.icon]} name="facebook" size={24} color="#3B5998" />
+          <MaterialCommunityIcons style={[styles.icon]} name="twitter" size={24} color="#1DA1F2" />
+          <MaterialCommunityIcons style={[styles.icon]} name="github" size={24} color="#4078c0" />
+          <MaterialCommunityIcons style={[styles.icon]} name="linkedin" size={24} color=" #0e76a8" />
+          </View>
+       </View>
+    )
+  }
   return (
     <View style={{ flex: 1 }}>
       <Header
@@ -84,12 +107,20 @@ const Index = (props) => {
       <View ref={inputEl} style={{ flex: 1 }}>
         <View style={{ height: bodyHeight }}>
           <FlatList
-          
+          showsVerticalScrollIndicator={false}
           onScroll={HandleScroll}
-          ref={scrollRef} data={NAV_BAR_DATA} renderItem={renderBodyItems} />
+          ref={scrollRef} data={NAV_BAR_DATA} renderItem={renderBodyItems}
+          ListFooterComponent={listFooterComponent}
+          />
         </View>
+        
       </View>
     </View>
   );
 };
+const styles = StyleSheet.create({
+  icon:{
+      marginHorizontal:6
+  }
+})
 export default Index;

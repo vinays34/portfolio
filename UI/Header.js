@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
     },
     selectionIndicator:{
         borderColor:"red",
-        borderWidth:1,
+        borderBottomWidth:2,
         backgroundColor:"#e3e3e3".replace,
-        borderRadius:4
+        
     },
     selectionText:{
         fontWeight:"bold"

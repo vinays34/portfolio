@@ -11,27 +11,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1.00001, viewport-fit=cover"
     />
-    <script type="text/javascript" async=1>
-      ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[]; p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments) };p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1; n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","https://cdnjs.cloudflare.com/ajax/libs/snowplow/2.18.2/sp.js","snowplow"));
-      snowplow('newTracker', 'sp', 'localhost:8080', {
-  appId: 'vinays-dev',
-  discoverRootDomain: true,
-  cookieSameSite: 'Lax', // Recommended
-  contexts: {
-    webPage: true // default, can be omitted
-  }, 
-  crossDomainLinker: function (linkElement) {
-    return true; 
-}
-});
-
-snowplow('trackPageView');
-function tracker(){
-  console.log("tracking")
-   snowplow('trackPageView');
-}
-     </script>
-    <title>%WEB_TITLE%</title>
+     
+    <title>Vinays</title>
     <style>
       /**
        * Extend the react-native-web reset:

@@ -33,11 +33,10 @@ const BlogIndex = (props) => {
   useEffect(() => {
     console.log("Blog inedex props", props);
     return () => {
-      snowplow("trackPageView", "Exit Blogs");
+      
     };
   });
-  snowplow("trackPageView", { name: "Blogs page" });
-  snowplow("enableActivityTracking", 30, 10);
+  
   const [limit, setLimit] = useState(6);
   const [offset, setOffset] = useState(0);
   const [loadFooter, setLoadFooter] = useState(0);

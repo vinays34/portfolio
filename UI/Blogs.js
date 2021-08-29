@@ -16,7 +16,7 @@ const Blogs = (props)=>{
                <View>
                <Image
                source={require("./../assets/blogicon.png")}
-               style={{width:400,height:250,alignSelf:'center'}}
+               style={{width:426,height:330,alignSelf:'center'}}
                resizeMode="contain"
                />
               

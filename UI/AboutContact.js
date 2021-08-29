@@ -33,7 +33,7 @@ const AboutContact= ()=>{
               <View style={[{justifyContent:'center',alignItems:'center',flex:1}]}>
            
            <Image
-           style={{height:200,width:200,borderRadius:100}}
+           style={{height:300,width:294 ,borderRadius:150}}
            source={require("./../assets/pp.jpg")}
            />
            <View style={{alignItems:'center',width:"100%",maxWidth:350,padding:12,justifyContent:'center',marginHorizontal:24}}>
