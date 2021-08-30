@@ -4,7 +4,7 @@ import {
     
   } from "@apollo/client";
   export const client = new ApolloClient({
-    uri: 'https://bb73-49-205-120-175.ngrok.io',
+    uri: 'https://bb73-49-205-120-175.ngrok.io/graphql',
     cache: new InMemoryCache(
         {
             typePolicies:{
