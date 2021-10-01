@@ -24,22 +24,29 @@ const ContactForm = () => {
   const sendMail = () => {
     if (name.length > 0 && email.length > 0 && comment.length > 0) {
       
-    
-    axios.post("https://bb73-49-205-120-175.ngrok.io/vs-contacts",{
+      axios
+      .post("https://secret-island-95358.herokuapp.com/contact", {
         name: name,
         email: email,
-        phone:phone,
-        message: comment, 
-    }).then(()=>{
-        axios
-        .post("https://secret-island-95358.herokuapp.com/contact", {
-          name: name,
-          email: email,
-          comment: comment,
-        })
-        .then(()=>{} )
-        .catch(()=>{});
-    })
+        comment: comment,
+      })
+      .then(()=>{} )
+      .catch(()=>{});
+    // axios.post("https://bb73-49-205-120-175.ngrok.io/vs-contacts",{
+    //     name: name,
+    //     email: email,
+    //     phone:phone,
+    //     message: comment, 
+    // }).then(()=>{
+    //     axios
+    //     .post("https://secret-island-95358.herokuapp.com/contact", {
+    //       name: name,
+    //       email: email,
+    //       comment: comment,
+    //     })
+    //     .then(()=>{} )
+    //     .catch(()=>{});
+    // })
     }
     // axios.post('http://localhost:8080/contact', {
 

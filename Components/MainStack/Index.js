@@ -25,7 +25,7 @@ const Index = (props) => {
     }
   })
   const [selectedNavitem, setSelectedNavItem] = useState(NAV_BAR_DATA[0].id);
-  
+  const [navScroll,setNavScroll] = useState(false)
   const inputEl = useRef(null);
    
   const scrollRef = useRef(null);
@@ -77,6 +77,10 @@ const Index = (props) => {
     }
   };
   const navBarSelection = (id)=>{
+    setNavScroll(true)
+    setTimeout(()=>{
+     setNavScroll(false)
+    },1000)
     setSelectedNavItem(id)
     scrollRef.current.scrollToIndex({
         index: parseInt(id),
@@ -84,9 +88,9 @@ const Index = (props) => {
     })
   }
   const HandleScroll = (event)=>{  
-    setTimeout(()=>{
+     if(!navScroll){
       setSelectedNavItem((Math.round(event.nativeEvent.contentOffset.y/bodyHeight)).toString())
-    },500)
+     } 
    }
    const iconCLick=(ele)=>{
      
